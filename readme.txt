@@ -19,6 +19,10 @@ Here is how to use :
 * Install the plugin
 * Go to Settings > Menu Export to get the Javascript code to insert to other websites.
 
+Features :
+* Choose menu class and container markup
+* If you use bootstrap, can add the markup for automatic dropdown menu
+
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
