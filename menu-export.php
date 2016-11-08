@@ -11,6 +11,8 @@ License:            GPL
 
 defined('ABSPATH') || die('No script kiddies please!');
 
+require 'bs_nav_walker.php';
+
 class WP_Menu_Export
 {
     public function __construct()
@@ -27,13 +29,14 @@ class WP_Menu_Export
             return;
         }
 
-        $options = array(
-            'theme_location' => $_GET['theme_location'],
-        );
+        foreach (['theme_location', 'menu_class', 'container'] as $option) {
+            if (isset($_REQUEST[$option])) {
+                $options[$option] = $_REQUEST[$option];
+            }
+        }
 
         if (isset($_REQUEST['bootstrap']) && $_REQUEST['bootstrap'] == 1) {
-            $options['walker'] = new wp_bootstrap_navwalker();
-            $options['menu_class'] = 'nav navbar-nav navbar-right';
+            $options['walker'] = new wp_menu_export_bootstrap_navwalker();
         }
 
         header('Access-Control-Allow-Origin: *');
@@ -68,13 +71,15 @@ class WP_Menu_Export
         /** SETTINGS **/
         var themeLocation = 'primary_navigation';
         var addBootstrapCSS = false;
+        var menu_class = 'menu';
+        var container = 'div';
 
         var r = new XMLHttpRequest();
-        r.open('GET', '<?= home_url(); ?>/?menu_export=1&theme_location=' + themeLocation + (addBootstrapCSS ? '&bootstrap=1' : ''), true);
-        r.onreadystatechange = function () {
-          if (r.readyState != 4 || r.status != 200) return;
-          document.getElementById('menu-export').innerHTML = r.responseText;
-        };
+        r.open('GET', '<?= home_url(); ?>/?menu_export=1&theme_location='+themeLocation+
+        '&menu_class='+menu_class+'&container='+container+
+        (addBootstrapCSS?'&bootstrap=1':''),true);
+        r.onreadystatechange=function(){if(r.readyState!=4||r.status!=200)return;
+        document.getElementById('menu-export').innerHTML = r.responseText;};
         r.send();
     })();
     &lt;/script&gt;
