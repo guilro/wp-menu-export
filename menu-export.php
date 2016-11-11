@@ -1,13 +1,14 @@
 <?php
-/*
-Plugin Name:        Menu export
-Description:        Menu export
-Version:            1.0.0
-Author:             Guillaume Royer
-Author URI:         perso@guilro.com
-
-License:            GPL
-*/
+/**
+ * Plugin Name:        Menu export
+ * Plugin URI:         https://wordpress.org/plugins/menu-export/
+ * Description:        Menu Export allows you to embed your menu markup on other websites.
+ * Version:            1.0.0
+ * Author:             Guillaume Royer <perso@guilro.com>
+ * Author URI:         https://redado.com
+ * License:            GPL-2.0+
+ * License URI:        http://www.gnu.org/licenses/gpl-2.0.txt
+ */
 
 defined('ABSPATH') || die('No script kiddies please!');
 
