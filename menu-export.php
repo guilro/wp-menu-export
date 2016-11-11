@@ -30,6 +30,8 @@ class WP_Menu_Export
             return;
         }
 
+        $options = array();
+
         foreach (['theme_location', 'menu_class', 'container'] as $option) {
             if (isset($_REQUEST[$option])) {
                 $options[$option] = $_REQUEST[$option];
