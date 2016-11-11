@@ -10,9 +10,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Menu Export allows you to embed your menu markup on other websites.
 
-If you have other application than Wordpress that you serve to your users, you may keep Wordpress as the Single Source Of Truth for your main menu.
-
 == Description ==
+
+Menu Export allows you to embed your menu markup on other websites.
+
+If you have other application than Wordpress that you serve to your users, you may keep Wordpress as the Single Source Of Truth for your main menu.
 
 Here is how to use :
 
@@ -20,6 +22,7 @@ Here is how to use :
 * Go to Settings > Menu Export to get the Javascript code to insert to other websites.
 
 Features :
+
 * Choose menu class and container markup
 * If you use bootstrap, can add the markup for automatic dropdown menu
 
