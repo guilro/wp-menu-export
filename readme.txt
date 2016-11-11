@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/guilro
 Tags: menu, ajax
 Requires at least: 4.3
 Tested up to: 4.7
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,5 +33,8 @@ Features :
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.1 =
+* Bug fix
+
+= 1.0.0 =
 * First version
