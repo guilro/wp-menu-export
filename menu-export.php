@@ -4,7 +4,7 @@
  * Plugin URI:         https://wordpress.org/plugins/menu-export/
  * Description:        Menu Export allows you to embed your menu markup on other websites.
  * Version:            1.1.0
- * Author:             Guillaume Royer <perso@guilro.com>
+ * Author:             Jill Royer <perso@jillro.me>
  * Author URI:         https://redado.com
  * License:            GPL-2.0+
  * License URI:        http://www.gnu.org/licenses/gpl-2.0.txt
