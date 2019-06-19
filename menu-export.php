@@ -3,7 +3,7 @@
  * Plugin Name:        Menu export
  * Plugin URI:         https://wordpress.org/plugins/menu-export/
  * Description:        Menu Export allows you to embed your menu markup on other websites.
- * Version:            1.0.0
+ * Version:            1.1.0
  * Author:             Guillaume Royer <perso@guilro.com>
  * Author URI:         https://redado.com
  * License:            GPL-2.0+
@@ -12,13 +12,15 @@
 
 defined('ABSPATH') || die('No script kiddies please!');
 
-require 'bs_nav_walker.php';
+require 'bs3_nav_walker.php';
+require 'bs4_nav_walker.php';
 
 class WP_Menu_Export
 {
     public function __construct()
     {
         add_action('init', [$this, 'main']);
+        add_filter('nav_menu_link_attributes', [$this, 'ensure_absolute_urls']);
         add_action('admin_menu', [$this, 'menu']);
     }
 
@@ -38,8 +40,13 @@ class WP_Menu_Export
             }
         }
 
-        if (isset($_REQUEST['bootstrap']) && $_REQUEST['bootstrap'] == 1) {
+        if ((isset($_REQUEST['bootstrap']) && $_REQUEST['bootstrap'] == 1)
+          || (isset($_REQUEST['bootstrap3']) && $_REQUEST['bootstrap3'])) {
             $options['walker'] = new wp_menu_export_bootstrap_navwalker();
+        }
+
+        if ((isset($_REQUEST['bootstrap4']) && $_REQUEST['bootstrap4'] == 1)) {
+            $options['walker'] = new WP_Bootstrap_Navwalker();
         }
 
         header('Access-Control-Allow-Origin: *');
@@ -74,13 +81,14 @@ class WP_Menu_Export
         /** SETTINGS **/
         var themeLocation = 'primary_navigation';
         var addBootstrapCSS = false;
+        var bootstrapVersion = 4; // or 3
         var menu_class = 'menu';
         var container = 'div';
 
         var r = new XMLHttpRequest();
         r.open('GET', '<?= home_url(); ?>/?menu_export=1&theme_location='+themeLocation+
         '&menu_class='+menu_class+'&container='+container+
-        (addBootstrapCSS?'&bootstrap=1':''),true);
+        (addBootstrapCSS?'&bootstrap'+bootstrapVersion+'=1':''),true);
         r.onreadystatechange=function(){if(r.readyState!=4||r.status!=200)return;
         document.getElementById('menu-export').innerHTML = r.responseText;};
         r.send();
