@@ -1,10 +1,9 @@
 === Plugin Name ===
-Contributors: guilro
-Donate link: https://www.paypal.me/guilro
+Contributors: jillro
 Tags: menu, ajax
 Requires at least: 4.3
-Tested up to: 4.7
-Stable tag: 1.0.1
+Tested up to: 5.2
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +31,9 @@ Features :
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Changelog ==
+
+= 1.1.0 =
+* Support for Bootstrap 4
 
 = 1.0.1 =
 * Bug fix
